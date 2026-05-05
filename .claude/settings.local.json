@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Tan\\\\Downloads\\\\auth-service\" -Recurse -Filter \"*.java\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(mvn clean *)",
+      "Bash(curl -s -X POST http://localhost:8081/api/auth/register -H \"Content-Type: application/json\" -d '{\"email\":\"test@infina.com\",\"password\":\"123456\",\"fullName\":\"Test Kullanici\"}')",
+      "Bash(netstat -ano)",
+      "Bash(findstr \":8081\")",
+      "Bash(findstr LISTENING)",
+      "Bash(taskkill /PID 24244 /F)",
+      "PowerShell(Stop-Process -Id 24244 -Force)",
+      "Bash(mvn spring-boot:run)",
+      "Bash(curl -s -X POST http://localhost:8081/api/auth/register -H \"Content-Type: application/json\" -d '{\"email\":\"test2@infina.com\",\"password\":\"123456\",\"fullName\":\"Test Kullanici\"}')",
+      "Bash(curl -s -X POST http://localhost:8081/api/auth/register -H \"Content-Type: application/json\" -d '{\"email\":\"test3@infina.com\",\"password\":\"123456\",\"fullName\":\"Test Kullanici\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP_STATUS:%{http_code}\" -X POST http://localhost:8081/api/auth/register -H \"Content-Type: application/json\" -d '{\"email\":\"newuser@infina.com\",\"password\":\"123456\",\"fullName\":\"Test Kullanici\"}')"
+    ]
+  }
+}

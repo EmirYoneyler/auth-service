@@ -6,11 +6,12 @@ import com.fonbulteni.authservice.dto.RegisterRequest;
 import com.fonbulteni.authservice.entity.User;
 import com.fonbulteni.authservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor// Lombok, constructor injection için gerekli constructor'ı otomatik olarak oluşturur
 public class AuthService {
 
     private final UserRepository userRepository;
@@ -21,7 +22,7 @@ public class AuthService {
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Bu email zaten kayıtlı.");
         }
-        User user = User.builder()
+        User user = User.builder()//insted of using constructor, we can use builder pattern to create user object because it is more readable and easier to maintain
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .fullName(request.getFullName())
